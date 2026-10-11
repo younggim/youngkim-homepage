@@ -55,11 +55,13 @@ export default function AboutPage() {
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
       <PageHeader eyebrow="About" title={`${profile.nameKo} (${profile.name})`} desc={profile.role} />
 
-      <section className="max-w-3xl space-y-4 leading-8">
-        {profile.about.map((p) => (
-          <p key={p}>{p}</p>
-        ))}
-      </section>
+      {profile.about.length > 0 && (
+        <section className="max-w-3xl space-y-4 leading-8">
+          {profile.about.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </section>
+      )}
 
       <section className="mt-16">
         <h2 className="text-2xl font-bold">Skills · 기술 스택</h2>

@@ -90,7 +90,7 @@ claude --version   # Claude Code
 - **최근 프로젝트 3개**, **최근 노트 3개** 카드.
 
 ### 4.2 About (`/about`)
-- 자기소개 문단: 왜 컴퓨터공학에서 전자공학으로 관심이 옮겨 갔는지.
+- 자기소개 문단: 현재는 표시하지 않습니다(`profile.about`을 비워 둠, 문단을 넣으면 다시 나타남).
 - **기술 스택**을 두 축으로 나눠 표시합니다.
   - *Software*: C, C++, Python, TypeScript, Linux, Git
   - *Hardware (학습 중)*: Arduino, Raspberry Pi, STM32, Verilog/FPGA, KiCad, 오실로스코프/멀티미터
