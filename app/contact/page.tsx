@@ -28,6 +28,10 @@ export default function ContactPage() {
         desc="회로, 임베디드, 통신 이야기라면 언제든 환영합니다. 스터디나 프로젝트 제안도 좋아요."
       />
 
+      <p className="mb-6 text-sm text-muted">
+        {profile.nameKo} ({profile.name}) · <span className="font-semibold text-fg">{profile.role}</span>
+      </p>
+
       <section className="relative mb-8 overflow-hidden rounded-2xl border-2 border-accent bg-surface p-6 sm:p-8">
         <span aria-hidden className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-spring-soft" />
         <div className="relative flex items-start gap-4">

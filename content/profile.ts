@@ -14,13 +14,13 @@ export interface RoadmapItem {
 }
 
 export const profile = {
-  name: "Jaewon Kim",
-  nameKo: "김재원",
-  nickname: "Bomsaja",
-  nicknameKo: "봄사자",
+  name: "Younggi Kim",
+  nameKo: "김영기",
+  nickname: "Contemplating Dragon",
+  nicknameKo: "",
   tagline: "코드로 세상을 이해했고, 이제 회로로 세상을 만들고 싶은 컴퓨터공학도",
   motto: "From bits to electrons.",
-  role: "Computer Science student · Aspiring Electronics Engineer",
+  role: "LG전자 책임 연구원",
   siteUrl: "https://youngkim-homepage.vercel.app",
   // GitHub 저장소: 수정하기 버튼이 이 저장소의 웹 편집기를 엽니다.
   repo: { name: "younggim/youngkim-homepage", branch: "main" },
@@ -88,8 +88,8 @@ export const profile = {
 
   // 빈 문자열이면 Contact 페이지에서 숨겨집니다.
   links: {
-    email: "bomsaja890@gmail.com",
-    phone: "010-5586-2034",
+    email: "skylogics@gmail.com",
+    phone: "",
     github: "",
     linkedin: "",
   },

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { profile } from "@/content/profile";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -28,13 +29,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setOpen(false)}>
+        <Link href="/" title={profile.nickname} className="flex shrink-0 items-center gap-2 font-bold" onClick={() => setOpen(false)}>
           <span aria-hidden className="relative inline-flex h-6 w-6 items-center justify-center">
             <span className="absolute inset-0 rounded-full border-2 border-trace" />
             <span className="h-2 w-2 rounded-full bg-spring" />
           </span>
           <span>
-            Bomsaja<span className="text-muted font-normal"> · 봄사자</span>
+            {profile.name}
           </span>
         </Link>
 

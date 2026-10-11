@@ -1,4 +1,4 @@
-# Program Guide — Jaewon Kim (Bomsaja) 개인 홈페이지
+# Program Guide — Younggi Kim (Contemplating Dragon) 개인 홈페이지
 
 > 이 문서는 Claude Code에게 전달하는 개발 지침서입니다.
 > 개발 환경은 [claude-hunt 사전 준비 가이드](https://docs.claude-hunt.com/learn/prerequisites)를 기준으로 하며,
@@ -11,7 +11,7 @@
 | 항목 | 내용 |
 |---|---|
 | 프로젝트명 | `youngkim-homepage` |
-| 주인공 | **김재원 (Jaewon Kim)**, 닉네임 **Bomsaja (봄사자)** |
+| 주인공 | **김영기 (Younggi Kim)**, 닉네임 **Contemplating Dragon**, LG전자 책임 연구원 |
 | 정체성 | **전자공학도를 꿈꾸는 컴퓨터공학 전공자**: 소프트웨어에서 출발해 하드웨어로 넘어가는 중인 사람 |
 | 목적 | 자기소개, 학습 기록, 프로젝트 포트폴리오, 연락 창구 |
 | 배포 주소 | `https://youngkim-homepage.vercel.app` (Vercel 자동 생성 주소) |
@@ -81,7 +81,7 @@ claude --version   # Claude Code
 ```
 
 ### 4.1 Home (`/`)
-- **Hero**: 이름 `Jaewon Kim`, 닉네임 `Bomsaja`, 한 줄 소개, CTA 버튼 2개(`Projects 보기`, `Contact`).
+- **Hero**: 이름 `Younggi Kim`, 닉네임 `Contemplating Dragon`, 소속 배지 `LG전자 책임 연구원`, 한 줄 소개, CTA 버튼 2개(`Projects 보기`, `Contact`).
 - **Transition 섹션**: "CS → EE" 여정을 3단계 타임라인으로 시각화합니다.
   1. **Software**: 알고리즘, 자료구조, 웹 개발
   2. **Bridge**: 컴퓨터 구조, 운영체제, 임베디드 C
@@ -120,7 +120,7 @@ claude --version   # Claude Code
 
 ### 4.5 Contact (`/contact`)
 - 상단에 채용 메시지 카드: "삼성전자, LG전자, SK Hynix, 현대자동차와 함께 할 미래를 꿈꾸며 성장하고자 합니다."
-- 이메일(`bomsaja890@gmail.com`), 전화(`010-5586-2034`, 누르면 바로 전화)를 둡니다. GitHub 링크는 표시하지 않습니다(`links.github`를 비워 둠). 폼은 만들지 않습니다.
+- 상단에 이름과 소속(`LG전자 책임 연구원`)을 표시하고, 이메일(`skylogics@gmail.com`)을 둡니다. 전화번호는 표시하지 않습니다(`links.phone`을 비워 둠). GitHub 링크는 표시하지 않습니다(`links.github`를 비워 둠). 폼은 만들지 않습니다.
 - 실제 값은 `content/profile.ts`의 `links`와 `contactMessage`에서 관리합니다.
 
 ### 4.6 사이트 안에서 바로 수정하기 (Notes, AIM&Future, AI성장, 프롬프트&루프, References, Memo)
@@ -178,7 +178,7 @@ claude --version   # Claude Code
 
 ## 5. 디자인 가이드
 
-- **컨셉**: "회로 기판 위의 봄(Spring on a PCB)". 닉네임 *봄사자*의 따뜻함과 전자공학의 정밀함을 함께 담습니다.
+- **컨셉**: "회로 기판 위의 봄(Spring on a PCB)". 봄의 따뜻함과 전자공학의 정밀함을 함께 담습니다.
 - **컬러 토큰** (`:root` CSS 변수로 정의하고 다크 모드를 지원합니다)
 
 | 토큰 | Light | Dark | 용도 |
