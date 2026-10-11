@@ -1,4 +1,4 @@
-# Program Guide — Younggi Kim (Contemplating Dragon) 개인 홈페이지
+# Program Guide — Young Kim (Contemplating Dragon) 개인 홈페이지
 
 > 이 문서는 Claude Code에게 전달하는 개발 지침서입니다.
 > 개발 환경은 [claude-hunt 사전 준비 가이드](https://docs.claude-hunt.com/learn/prerequisites)를 기준으로 하며,
@@ -11,7 +11,7 @@
 | 항목 | 내용 |
 |---|---|
 | 프로젝트명 | `youngkim-homepage` |
-| 주인공 | **김영기 (Younggi Kim)**, 닉네임 **Contemplating Dragon**, LG전자 책임 연구원 |
+| 주인공 | **김영기 (Young Kim)**, 닉네임 **Contemplating Dragon**, LG전자 책임 연구원 |
 | 정체성 | **전자공학도를 꿈꾸는 컴퓨터공학 전공자**: 소프트웨어에서 출발해 하드웨어로 넘어가는 중인 사람 |
 | 목적 | 자기소개, 학습 기록, 프로젝트 포트폴리오, 연락 창구 |
 | 배포 주소 | `https://youngkim-homepage.vercel.app` (Vercel 자동 생성 주소) |
@@ -82,7 +82,7 @@ claude --version   # Claude Code
 ```
 
 ### 4.1 Home (`/`)
-- **Hero**: 이름 `Younggi Kim`, 닉네임 `Contemplating Dragon`, 소속 배지 `LG전자 책임 연구원`, 한 줄 소개, CTA 버튼 2개(`Projects 보기`, `Contact`).
+- **Hero**: 이름 `Young Kim`, 닉네임 `Contemplating Dragon`, 소속 배지 `LG전자 책임 연구원`, 한 줄 소개, CTA 버튼 2개(`Projects 보기`, `Contact`).
 - **Transition 섹션**: "CS → EE" 여정을 3단계 타임라인으로 시각화합니다.
   1. **Software**: 알고리즘, 자료구조, 웹 개발
   2. **Bridge**: 컴퓨터 구조, 운영체제, 임베디드 C

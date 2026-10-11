@@ -14,7 +14,7 @@ export interface RoadmapItem {
 }
 
 export const profile = {
-  name: "Younggi Kim",
+  name: "Young Kim",
   nameKo: "김영기",
   nickname: "Contemplating Dragon",
   nicknameKo: "",

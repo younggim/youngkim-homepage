@@ -1,6 +1,6 @@
-# Younggi Kim · Contemplating Dragon
+# Young Kim · Contemplating Dragon
 
-**Younggi Kim (김영기)**, LG전자 책임 연구원의 개인 홈페이지입니다. 전자공학도를 꿈꾸는 컴퓨터공학 전공자의 기록을 담았습니다.
+**Young Kim (김영기)**, LG전자 책임 연구원의 개인 홈페이지입니다. 전자공학도를 꿈꾸는 컴퓨터공학 전공자의 기록을 담았습니다.
 
 > From bits to electrons.
 
