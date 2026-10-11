@@ -18,7 +18,7 @@ export const profile = {
   nameKo: "김영기",
   nickname: "Contemplating Dragon",
   nicknameKo: "",
-  tagline: "사유와 독서를 즐기며 살아가는 여행자이자 AI를 활용한 업무 flow 개선을 주도하는 삶",
+  tagline: "사유와 독서를 즐기는 여행자이자 AI를 활용한 업무 flow 개선을 주도하는 삶",
   motto: "From bits to electrons.",
   role: "LG전자 책임 연구원",
   siteUrl: "https://youngkim-homepage.vercel.app",

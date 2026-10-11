@@ -17,7 +17,7 @@
 | 배포 주소 | `https://youngkim-homepage.vercel.app` (Vercel 자동 생성 주소) |
 
 ### 핵심 메시지 (한 줄 소개)
-> "사유와 독서를 즐기며 살아가는 여행자이자 AI를 활용한 업무 flow 개선을 주도하는 삶"
+> "사유와 독서를 즐기는 여행자이자 AI를 활용한 업무 flow 개선을 주도하는 삶"
 > *From bits to electrons.*
 
 ---
