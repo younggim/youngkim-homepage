@@ -8,9 +8,27 @@ export const metadata: Metadata = { title: "Contact" };
 export default function ContactPage() {
   const { email, phone, github, linkedin } = profile.links;
   const links = [
-    email && { label: "Email", value: email, href: `mailto:${email}`, icon: Mail, external: false },
-    phone && { label: "Phone", value: phone, href: `tel:${phone.replace(/-/g, "")}`, icon: Phone, external: false },
-    github && { label: "GitHub", value: github.replace(/^https?:\/\//, ""), href: github, icon: FolderGit2, external: true },
+    email && {
+      label: "Email",
+      value: email,
+      href: `mailto:${email}`,
+      icon: Mail,
+      external: false,
+    },
+    phone && {
+      label: "Phone",
+      value: phone,
+      href: `tel:${phone.replace(/-/g, "")}`,
+      icon: Phone,
+      external: false,
+    },
+    github && {
+      label: "GitHub",
+      value: github.replace(/^https?:\/\//, ""),
+      href: github,
+      icon: FolderGit2,
+      external: true,
+    },
     linkedin && {
       label: "LinkedIn",
       value: linkedin.replace(/^https?:\/\//, ""),
@@ -18,7 +36,13 @@ export default function ContactPage() {
       icon: BriefcaseBusiness,
       external: true,
     },
-  ].filter(Boolean) as { label: string; value: string; href: string; icon: typeof Mail; external: boolean }[];
+  ].filter(Boolean) as {
+    label: string;
+    value: string;
+    href: string;
+    icon: typeof Mail;
+    external: boolean;
+  }[];
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
@@ -29,21 +53,29 @@ export default function ContactPage() {
       />
 
       <p className="mb-6 text-sm text-muted">
-        {profile.nameKo} ({profile.name}) · <span className="font-semibold text-fg">{profile.role}</span>
+        {profile.nameKo} ({profile.name}) ·{" "}
+        <span className="font-semibold text-fg">{profile.role}</span>
       </p>
 
-      <section className="relative mb-8 overflow-hidden rounded-2xl border-2 border-accent bg-surface p-6 sm:p-8">
-        <span aria-hidden className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-spring-soft" />
-        <div className="relative flex items-start gap-4">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-ink text-bg">
-            <Zap size={20} aria-hidden />
-          </span>
-          <div>
-            <h2 className="text-lg font-bold sm:text-xl">{profile.contactMessage.title}</h2>
-            <p className="mt-2 text-muted">{profile.contactMessage.body}</p>
+      {profile.contactMessage.title && (
+        <section className="relative mb-8 overflow-hidden rounded-2xl border-2 border-accent bg-surface p-6 sm:p-8">
+          <span
+            aria-hidden
+            className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-spring-soft"
+          />
+          <div className="relative flex items-start gap-4">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-ink text-bg">
+              <Zap size={20} aria-hidden />
+            </span>
+            <div>
+              <h2 className="text-lg font-bold sm:text-xl">
+                {profile.contactMessage.title}
+              </h2>
+              <p className="mt-2 text-muted">{profile.contactMessage.body}</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {links.length ? (
         <ul className="space-y-3">
@@ -51,7 +83,9 @@ export default function ContactPage() {
             <li key={label}>
               <a
                 href={href}
-                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="flex items-center gap-4 rounded-xl border border-border bg-surface p-5 transition hover:border-accent"
               >
                 <Icon size={22} aria-hidden className="text-accent-ink" />

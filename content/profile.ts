@@ -94,8 +94,9 @@ export const profile = {
     linkedin: "",
   },
 
+  // 빈 문자열이면 Contact 상단 메시지 카드를 숨깁니다.
   contactMessage: {
-    title: "삼성전자, LG전자, SK Hynix, 현대자동차와 함께 할 미래를 꿈꾸며 성장하고자 합니다.",
-    body: "반도체, 전자회로, 임베디드, 통신 분야라면 어디든 배우고 기여할 준비가 되어 있습니다. 인턴, 채용, 프로젝트 제안 모두 환영합니다.",
+    title: "",
+    body: "",
   },
 };

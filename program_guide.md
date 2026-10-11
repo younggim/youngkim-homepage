@@ -120,7 +120,7 @@ claude --version   # Claude Code
 - 최신순으로 정렬하고 태그로 필터링합니다.
 
 ### 4.5 Contact (`/contact`)
-- 상단에 채용 메시지 카드: "삼성전자, LG전자, SK Hynix, 현대자동차와 함께 할 미래를 꿈꾸며 성장하고자 합니다."
+- 채용 메시지 카드는 표시하지 않습니다(`contactMessage.title`을 비워 둠, 값을 넣으면 다시 나타남).
 - 상단에 이름과 소속(`LG전자 책임 연구원`)을 표시하고, 이메일(`skylogics@gmail.com`)을 둡니다. 전화번호는 표시하지 않습니다(`links.phone`을 비워 둠). GitHub 링크는 표시하지 않습니다(`links.github`를 비워 둠). 폼은 만들지 않습니다.
 - 실제 값은 `content/profile.ts`의 `links`와 `contactMessage`에서 관리합니다.
 
