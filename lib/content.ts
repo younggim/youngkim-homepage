@@ -47,7 +47,7 @@ export function getProject(slug: string) {
 }
 
 // Repo folder for each note kind.
-const NOTE_DIRS = { notes: "notes", aims: "aims", ai: "ai-growth", prompts: "prompt-loop" } as const;
+const NOTE_DIRS = { notes: "notes", aims: "aims", ai: "ai-growth", prompts: "prompt-loop", lang: "language" } as const;
 
 export function getRepoNotes(kind: keyof typeof NOTE_DIRS = "notes"): NoteDoc[] {
   const dir = NOTE_DIRS[kind];

@@ -13,6 +13,7 @@ const NAV = [
   { href: "/aim", label: "AIM&Future" },
   { href: "/ai-growth", label: "AI성장" },
   { href: "/prompt-loop", label: "프롬프트&루프" },
+  { href: "/language", label: "언어공부" },
   { href: "/notes", label: "Notes" },
   { href: "/references", label: "References" },
   { href: "/memo", label: "Memo" },
@@ -39,13 +40,13 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav aria-label="주요 메뉴" className="hidden xl:flex items-center gap-1">
+        <nav aria-label="주요 메뉴" className="hidden xl:flex items-center">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`rounded-md px-2.5 py-2 text-sm whitespace-nowrap transition-colors ${
+              className={`rounded-md px-2 py-2 text-sm whitespace-nowrap transition-colors ${
                 isActive(item.href) ? "text-accent-ink font-semibold" : "text-muted hover:text-fg"
               }`}
             >

@@ -72,7 +72,7 @@ export function AttachmentsField({
   return (
     <div>
       <div className="mb-1 flex items-center justify-between gap-2">
-        <span className="text-sm text-muted">첨부 자료 (PDF, 이미지, 문서, 코드, ZIP · 파일당 20MB)</span>
+        <span className="text-sm text-muted">첨부 자료 (PDF, 이미지, 문서, 코드, 음성, ZIP · 파일당 20MB)</span>
         <label className="inline-flex cursor-pointer items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-xs font-semibold hover:border-accent">
           {progress ? <Loader2 size={14} className="animate-spin" aria-hidden /> : <Paperclip size={14} aria-hidden />}
           {progress || "파일 추가"}
@@ -130,7 +130,10 @@ export function AttachmentList({ items }: { items: Attachment[] }) {
       </h2>
       <ul className="mt-3 grid gap-2 sm:grid-cols-2">
         {items.map((a) => (
-          <li key={a.url}>
+          <li key={a.url} className="space-y-1">
+            {a.type.startsWith("audio/") && (
+              <audio controls preload="none" src={a.url} className="w-full" aria-label={`${a.name} 재생`} />
+            )}
             <a
               href={a.url}
               target="_blank"

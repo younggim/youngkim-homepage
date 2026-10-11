@@ -37,9 +37,9 @@ export interface MemoDoc {
 }
 export type MemoMeta = Omit<MemoDoc, "body">;
 
-export type NoteKind = "notes" | "aims" | "ai" | "prompts";
+export type NoteKind = "notes" | "aims" | "ai" | "prompts" | "lang";
 export type DocKind = NoteKind | "memos" | "references";
-export const NOTE_KIND_IDS: NoteKind[] = ["notes", "aims", "ai", "prompts"];
+export const NOTE_KIND_IDS: NoteKind[] = ["notes", "aims", "ai", "prompts", "lang"];
 
 // Note-shaped collections share the editor and pages; only paths and labels differ.
 export const NOTE_KINDS: Record<NoteKind, { path: string; title: string; item: string; itemObj: string; itemSubj: string }> = {
@@ -47,6 +47,7 @@ export const NOTE_KINDS: Record<NoteKind, { path: string; title: string; item: s
   aims: { path: "/aim", title: "AIM&Future", item: "글", itemObj: "글을", itemSubj: "글이" },
   ai: { path: "/ai-growth", title: "AI성장", item: "자료", itemObj: "자료를", itemSubj: "자료가" },
   prompts: { path: "/prompt-loop", title: "프롬프트&루프 연구", item: "연구 노트", itemObj: "연구 노트를", itemSubj: "연구 노트가" },
+  lang: { path: "/language", title: "언어공부", item: "공부 기록", itemObj: "공부 기록을", itemSubj: "공부 기록이" },
 };
 
 // Attachments: files uploaded to Blob under files/<kind>/<slug>/<timestamp>-<safe-name>.
@@ -69,6 +70,9 @@ export const FILE_TYPES: Record<string, string> = {
   pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   hwp: "application/x-hwp",
+  mp3: "audio/mpeg",
+  m4a: "audio/mp4",
+  wav: "audio/wav",
 };
 export const FILE_PATH_RE = new RegExp(
   `^files/(${NOTE_KIND_IDS.join("|")})/[a-z0-9][a-z0-9-]{1,79}/\\d{13}-[A-Za-z0-9._-]{1,100}$`,

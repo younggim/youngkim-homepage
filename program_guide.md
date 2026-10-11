@@ -68,6 +68,7 @@ claude --version   # Claude Code
 /aim/[slug]      → AIM&Future 글 상세
 /ai-growth       → AI성장 (AI 학습·활용 기록과 자료, 파일 첨부)
 /prompt-loop     → 프롬프트&루프 연구 (프롬프트·에이전트 루프 실험 노트, 파일 첨부)
+/language        → 언어공부 (표현·단어·문법 기록, 음성 파일 첨부 시 바로 재생)
 /notes           → Lab Notes (학습 기록 / 블로그)
 /notes/[slug]    → 노트 상세
 /references      → EE Reference Library (전자공학 참고서 모음, 12장 참고)
@@ -129,7 +130,7 @@ claude --version   # Claude Code
 - **References**: `자료 추가`, 카드마다 연필 버튼으로 수정과 삭제(분야, 유형, 난이도, 언어, 상태, 링크, 메모).
 - **Memo** (`/memo`): `새 메모`, 메모별 `수정하기`, `📌 맨 위에 고정`, 삭제.
 - **저장 구조**: 저장할 때마다 불변 버전 파일을 하나 만듭니다.
-  `edits/<notes|aims|ai|prompts|memos|references>/<slug>/<timestamp>-<rand>.json` → `{ data }` 또는 `{ deleted: true }`
+  `edits/<notes|aims|ai|prompts|lang|memos|references>/<slug>/<timestamp>-<rand>.json` → `{ data }` 또는 `{ deleted: true }`
   화면에는 저장소의 원본 파일(`content/notes`, `content/memos`, `content/references.ts`)에 **가장 최신 버전을 덮어** 보여 줍니다. 버전마다 경로가 달라 CDN 캐시 문제가 없습니다.
 - **되돌리기**: 수정된 문서에는 `이전 버전으로 되돌리기` 링크가 보입니다. 가장 최신 버전 파일을 지워 직전 상태(또는 저장소 원본)로 돌아갑니다. 삭제도 버전으로 기록되므로 되돌리기로 복구할 수 있습니다.
 - **안전장치**
@@ -153,10 +154,16 @@ claude --version   # Claude Code
 - 저장소 원본: `content/ai-growth/*.md`, `content/prompt-loop/*.md`. Blob 버전: `edits/ai/...`, `edits/prompts/...`.
 - 새 섹션을 더 만들 때는 `lib/docs.ts`의 `NoteKind`·`NOTE_KINDS`, `lib/content.ts`의 `NOTE_DIRS`, `lib/store.ts`의 `REV_RE`에 추가하고, `components/notes/pages.tsx`의 `NoteIndexPage`·`NoteDocPage`로 라우트 두 개를 만들면 됩니다.
 
+### 4.11 언어공부 (`/language`)
+- 메뉴에서 프롬프트&루프 다음에 있습니다. Notes와 같은 방식으로 누구나 쓰고, 고치고, 지우고, 되돌릴 수 있습니다. 버튼 이름은 `새 공부 기록`.
+- 시작용 양식: 오늘의 표현(표), 단어, 문법 메모, 듣기·말하기, 복습할 것.
+- 음성 파일(MP3, M4A, WAV)을 첨부하면 문서 하단에서 바로 재생할 수 있습니다.
+- 저장소 원본: `content/language/*.md`, Blob 버전: `edits/lang/...`, 첨부: `files/lang/...`.
+
 ### 4.10 첨부 자료 (모든 노트형 페이지 공통)
 - Notes, AIM&Future, AI성장, 프롬프트&루프 연구의 편집 화면에 **파일 추가** 버튼이 있습니다. 파일을 고르면 바로 Blob에 올라가고, **저장**하면 문서에 붙습니다. 문서 하단에 `첨부 자료` 목록(이미지는 미리보기, 그 외는 확장자 아이콘)이 보이고, 카드에는 `📎 첨부 N개`가 표시됩니다.
 - 경로: `files/<kind>/<slug>/<timestamp>-<영문화한 파일명>.<ext>` (원래 파일명은 문서에 따로 저장)
-- **허용 형식**: PDF, PNG, JPG, WEBP, GIF, TXT, MD, CSV, JSON, IPYNB, PY, ZIP, DOCX, PPTX, XLSX, HWP
+- **허용 형식**: PDF, PNG, JPG, WEBP, GIF, TXT, MD, CSV, JSON, IPYNB, PY, ZIP, DOCX, PPTX, XLSX, HWP, MP3, M4A, WAV (음성은 페이지에서 바로 재생)
 - **막는 형식**: HTML, SVG, JS 등 브라우저에서 실행될 수 있는 파일
 - **제한**: 파일당 20MB, 문서당 20개. 서버는 첨부 URL이 이 Blob 저장소의 `files/` 경로인지 검사하고, 다른 사이트 링크는 버립니다.
 - 첨부를 빼거나 문서를 지워도 파일 자체는 되돌리기를 위해 남겨 둡니다. 정리는 Vercel 대시보드 → Storage → `youngkim-files`의 `files/`에서 합니다.
@@ -210,7 +217,7 @@ youngkim-homepage/
 │  ├─ notes/page.tsx
 │  ├─ notes/[slug]/page.tsx
 │  ├─ references/page.tsx
-│  ├─ aim/, ai-growth/, prompt-loop/  # 각각 page.tsx + [slug]/page.tsx (components/notes/pages.tsx 사용)
+│  ├─ aim/, ai-growth/, prompt-loop/, language/  # 각각 page.tsx + [slug]/page.tsx (components/notes/pages.tsx 사용)
 │  ├─ api/files/upload/route.ts
 │  ├─ memo/page.tsx
 │  ├─ pictures/page.tsx + PictureGallery.tsx
@@ -231,6 +238,7 @@ youngkim-homepage/
 │  ├─ aims/*.md           # AIM&Future 원본
 │  ├─ ai-growth/*.md      # AI성장 원본
 │  ├─ prompt-loop/*.md    # 프롬프트&루프 연구 원본
+│  ├─ language/*.md       # 언어공부 원본
 │  └─ memos/*.md
 ├─ public/images/
 ├─ CLAUDE.md              # Claude Code용 프로젝트 규칙 (아래 8장 참고)
@@ -259,6 +267,7 @@ youngkim-homepage/
 | **10. 편집 기능** | Notes/References/Memo 사이트 내 수정·저장 (Vercel Blob 버전 저장, 되돌리기) | 저장 즉시 반영, XSS 차단·되돌리기 시험 통과 |
 | **12. AIM&Future** | Projects 옆 메뉴, 노트형 쓰기·수정 페이지 | 생성·수정·되돌리기 시험 통과 |
 | **13. AI성장·프롬프트&루프** | 노트형 섹션 2개 추가, 모든 노트형 페이지에 파일 첨부 | 업로드·첨부 표시·외부 URL 차단·SVG/HTML 거부 시험 통과 |
+| **14. 언어공부** | 노트형 섹션 추가, 음성 첨부 재생 | 생성·되돌리기·음성 업로드 시험 통과 |
 | **11. Pictures** | Vercel Blob 저장소 생성, 업로드/편집/삭제 API, 갤러리 | 실제 Blob에서 업로드→수정→삭제 시험 통과 |
 
 ---
@@ -287,6 +296,7 @@ youngkim-homepage/
 > - 사이트: https://youngkim-homepage.vercel.app
 > - GitHub: https://github.com/younggim/youngkim-homepage (`main` push 시 Vercel 자동 배포)
 > - Vercel 팀: `skylogics-8085s-projects`, Blob 저장소: `youngkim-files`
+> - `vercel.json`에 `"framework": "nextjs"`를 지정했습니다. CLI(`vercel project add`)로 만든 프로젝트는 프레임워크가 비어 있어 이 설정이 없으면 빌드 후 `public` 폴더를 찾다가 배포가 실패합니다.
 
 1. **GitHub 저장소 생성 및 push**: Claude Code에게 이렇게 요청합니다.
    > "내 GitHub 계정에 public `youngkim-homepage` 저장소를 만들고 `main` 브랜치를 push한 뒤 origin을 그 저장소로 설정해줘."
